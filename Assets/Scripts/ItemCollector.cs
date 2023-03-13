@@ -11,6 +11,8 @@ public class ItemCollector : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI cherriesText;
 
+    [SerializeField] private AudioSource collectSoundEffect;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -20,6 +22,8 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             cherries++;
             Debug.Log("Cherries : " + cherries);
+
+            collectSoundEffect.Play();
 
 
             cherriesText.text = "cherries: " + cherries;
